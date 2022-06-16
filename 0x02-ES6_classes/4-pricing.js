@@ -3,7 +3,7 @@ import Currency from './3-currency'; // eslint-disable-line no-unused-vars
 export default class Pricing {
   constructor(amount, currency) {
     this._amount = amount;
-    this._currency = currency;
+    this._currency = new Currency(currency.name, currency.code);
   }
 
   get amount() {
