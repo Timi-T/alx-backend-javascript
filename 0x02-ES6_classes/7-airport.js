@@ -6,6 +6,10 @@ export default class Airport {
     this._code = code;
   }
 
+  toString() {
+    return (`[${typeof this} ${this._code}]`);
+  }
+
   [util.inspect.custom]() {
     return (`${this.constructor.name} [${this._code}] ${JSON.stringify(this)}`);
   }
