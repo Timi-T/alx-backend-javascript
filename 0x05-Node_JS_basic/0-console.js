@@ -1,6 +1,6 @@
 /* Script to print an argument to STDOUT */
 
-function displayMessage (message) {
+const displayMessage = (message) => {
   console.log(message);
 }
 
