@@ -1,8 +1,7 @@
-function countStudents (path) {
+const makePromise = (path) => {
   const fs = require('fs');
-
-  const makePromise = () => {
-    return new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
+    resolve(
       fs.readFile(path, 'utf-8', (error, data) => {
         if (error) {
           throw new Error('Cannot load the database');
@@ -44,11 +43,13 @@ function countStudents (path) {
               return ' ' + firstname;
             })}`);
           });
-          resolve();
         }
-      });
-    });
-  };
-  return makePromise();
+      })
+    )
+  });
+};
+
+function countStudents (path) {
+  return makePromise(path);
 }
 module.exports = countStudents;
