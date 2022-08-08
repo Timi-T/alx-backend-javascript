@@ -59,6 +59,7 @@ const path = process.argv[2];
 app.createServer((request, response) => {
   if (request.url === '/') {
     response.write('Hello Holberton School!');
+    response.end();
   } else if (request.url === '/students') {
     countStudents(path)
       .then((res) => {
