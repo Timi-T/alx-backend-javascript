@@ -55,12 +55,14 @@ function countStudents (path) {
   return makePromise();
 }
 
+const path = process.argv[2];
+
 app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
 
 app.get('/students', (req, res) => {
-  countStudents('database.csv')
+  countStudents(path)
     .then((response) => {
       res.send('This is the list of our students\n' + response);
     });
