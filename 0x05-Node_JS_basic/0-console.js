@@ -1,4 +1,4 @@
-/* Script to print an argument to STDOUT */
+// Script to print an argument to STDOUT
 
 const displayMessage = (message) => {
   console.log(message);
