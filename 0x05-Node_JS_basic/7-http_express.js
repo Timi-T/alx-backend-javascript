@@ -7,7 +7,7 @@ function countStudents (path) {
   const fs = require('fs');
 
   const makePromise = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       fs.readFile(path, 'utf-8', (error, data) => {
         if (error) {
           throw new Error('Cannot load the database');
@@ -67,7 +67,10 @@ app.get('/students', (req, res) => {
   countStudents(path)
     .then((response) => {
       res.send('This is the list of our students\n' + response);
-    });
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 });
 
 app.listen(1245);
