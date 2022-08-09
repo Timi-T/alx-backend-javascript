@@ -1,3 +1,5 @@
+// Node server with a valid response
+
 const http = require('http');
 
 function countStudents (path) {
