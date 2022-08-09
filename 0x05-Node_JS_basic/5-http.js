@@ -68,10 +68,10 @@ const app = http.createServer((request, response) => {
     response.write('Hello Holberton School!');
     response.end();
   } else if (request.url === '/students') {
-    response.write('This is the list of our students\n');
     countStudents(path)
       .then((res) => {
-        response.write(res);
+        response.write('This is the list of our students\n' + res);
+        //response.write(res);
         response.end();
       })
       .catch((err) => {
