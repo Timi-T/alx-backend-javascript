@@ -1,7 +1,7 @@
 // Read a file asynchronously
 const fs = require('fs');
 
-function makePromise(path) {
+function countStudents (path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, 'utf-8', (error, data) => {
       if (error) {
@@ -49,10 +49,6 @@ function makePromise(path) {
       }
     });
   });
-};
-
-function countStudents (path) {
-  return makePromise(path);
 }
 
 module.exports = countStudents;
