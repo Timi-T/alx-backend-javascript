@@ -44,8 +44,8 @@ function countStudents (path) {
             }
           }
           let allLines = `Number of students: ${newArray.length}`;
-          Object.keys(fieldCount).forEach(field => {
-            allLines += `\nNumber of students in ${field}: ${fieldCount[field]}. List:${fieldNames[field].map(firstname => {
+          Object.keys(fieldCount).forEach((field) => {
+            allLines += `\nNumber of students in ${field}: ${fieldCount[field]}. List:${fieldNames[field].map((firstname) => {
               return ' ' + firstname;
             })}`;
           });
