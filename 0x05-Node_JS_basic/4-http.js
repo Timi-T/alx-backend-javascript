@@ -1,8 +1,10 @@
-const app = require('http');
+const http = require('http');
 
-app.createServer((request, response) => {
+const app = http.createServer((request, response) => {
   response.write('Hello Holberton School!');
   response.end();
-}).listen(1245);
+});
+
+app.listen(1245);
 
 module.exports = app;

@@ -1,4 +1,4 @@
-const app = require('http');
+const http = require('http');
 
 function countStudents (path) {
   const fs = require('fs');
@@ -56,7 +56,7 @@ function countStudents (path) {
 
 const path = process.argv[2];
 
-app.createServer((request, response) => {
+const app = http.createServer((request, response) => {
   if (request.url === '/') {
     response.write('Hello Holberton School!');
     response.end();
@@ -71,6 +71,8 @@ app.createServer((request, response) => {
         response.end();
       });
   }
-}).listen(1245);
+});
+
+app.listen(1245);
 
 module.exports = app;
