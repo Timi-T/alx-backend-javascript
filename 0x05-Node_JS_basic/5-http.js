@@ -124,7 +124,8 @@ const app = http.createServer((request, response) => {
         response.write('This is the list of our students\n' + res);
         response.end();
       })
-      .catch((error) => {
+      .catch((err) => {
+        response.write(err.message)
         response.end();
       });
   }
