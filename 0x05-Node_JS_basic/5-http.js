@@ -121,7 +121,7 @@ const app = http.createServer((request, response) => {
   } else if (request.url === '/students') {
     countStudents(path)
       .then((res) => {
-        response.write('This is the list of our students\n' + res);
+        response.write('This is the list of our students\n');
         response.end();
       })
       .catch((error) => {
