@@ -1,7 +1,7 @@
 // Parse a csv file synchronously to extract relevant data
 
+const fs = require('fs');
 function countStudents(path) {
-  const fs = require('fs');
   let data = '';
   try {
     data = fs.readFileSync(path, { encoding: 'utf-8', flag: 'r' });
