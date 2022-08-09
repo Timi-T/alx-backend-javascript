@@ -7,10 +7,10 @@ function countStudents (path) {
   const fs = require('fs');
 
   const makePromise = () => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       fs.readFile(path, 'utf-8', (error, data) => {
         if (error) {
-          throw new Error('Cannot load the database');
+          reject(new Error('Cannot load the database'));
         } else {
           let dataArray = data.split('\n');
           dataArray = dataArray.filter((str) => {
@@ -67,13 +67,12 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-  res.send('This is the list of our students\n');
   countStudents(path)
     .then((data) => {
-      res.send(data);
+      res.send('This is the list of our students\n' + data);
     })
     .catch((err) => {
-      res.send(err.message);
+      res.send('This is the list of our students\n' + err.message);
     })
 });
 
