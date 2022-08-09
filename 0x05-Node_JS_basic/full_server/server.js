@@ -2,9 +2,11 @@
 
 const express = require("express");
 const app = express();
-const nodeRoutes = require("./routes/index");
+const router = require("./routes/index");
 
-nodeRoutes(app);
+app.use('/', router);
+app.use('/students', router);
+app.use('/students/:major', router);
 app.listen(1245);
 
 export default app;
