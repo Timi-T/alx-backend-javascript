@@ -1,6 +1,6 @@
 // Parse a csv file synchronously to extract relevant data
 
-function countStudents (path) {
+function countStudents(path) {
   const fs = require('fs');
   let data = '';
   try {
