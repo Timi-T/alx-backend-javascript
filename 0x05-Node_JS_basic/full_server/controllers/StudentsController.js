@@ -34,10 +34,10 @@ class StudentsController {
         const message = `List:${data[major].map((firstname) => {
           return ' ' + firstname;
         })}`;
-        response.status(200).send(message);
+        return response.status(200).send(message);
       })
       .catch((err) => {
-        response.status(500).send(err);
+        return response.status(500).send(err);
       })
   }
 }
