@@ -123,6 +123,9 @@ const app = http.createServer((request, response) => {
       .then((res) => {
         response.write('This is the list of our students\n' + res);
         response.end();
+      })
+      .catch((error) => {
+        response.end();
       });
   }
 });
