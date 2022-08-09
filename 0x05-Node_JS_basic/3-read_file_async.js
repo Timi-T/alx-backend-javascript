@@ -49,7 +49,7 @@ const makePromise = (path) => {
         })
       )
     } else {
-      throw new Error('Cannot load the database');
+      reject (new Error('Cannot load the database'));
     }
   });
 };
@@ -57,4 +57,5 @@ const makePromise = (path) => {
 function countStudents (path) {
   return makePromise(path);
 }
+
 module.exports = countStudents;
