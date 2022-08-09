@@ -57,7 +57,10 @@ function countStudents (path) {
   return makePromise();
 }
 
-const path = process.argv[2];
+let path = process.argv[2];
+if (!path) {
+  path = 'none';
+}
 
 app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
@@ -69,7 +72,7 @@ app.get('/students', (req, res) => {
       res.send('This is the list of our students\n' + response);
     })
     .catch((err) => {
-      console.log(err);
+      res.send(err.message);
     })
 });
 
