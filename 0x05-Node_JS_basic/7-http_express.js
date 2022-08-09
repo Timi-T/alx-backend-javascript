@@ -67,9 +67,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
+  res.send('This is the list of our students\n');
   countStudents(path)
-    .then((response) => {
-      res.send('This is the list of our students\n' + response);
+    .then((data) => {
+      res.send(data);
     })
     .catch((err) => {
       res.send(err.message);
