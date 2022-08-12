@@ -41,7 +41,7 @@ async function countStudents(path) {
     }
     console.log(`Number of students: ${newArray.length}`);
     Object.keys(fieldCount).forEach((field) => {
-      console.log(`Number of students in ${field}: ${fieldCount[field]}. List:${fieldNames[field].map((firstname) => `${firstname}`)
+      console.log(`Number of students in ${field}: ${fieldCount[field]}. List:${fieldNames[field].map((firstname) => ` ${firstname}`)
       }`);
     });
   }
