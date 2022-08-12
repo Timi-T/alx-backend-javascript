@@ -1,31 +1,30 @@
 // Read a file asynchronously
 
 const fs = require('fs');
+
 const fsp = fs.promises;
 
-async function countStudents (path) {
+async function countStudents(path) {
   if (!fs.existsSync(path)) {
     throw new Error('Cannot load the database');
   } else {
     let data = await fsp.readFile(path);
     data = data.toString();
     let dataArray = data.split('\n');
-    dataArray = dataArray.filter((str) => {
-      return str !== '';
-    });
+    dataArray = dataArray.filter((str) => str !== '');
 
     const newArray = [];
     const fieldCount = {};
     const fieldNames = {};
 
-    for (let i = 0; i < dataArray.length; i++) {
+    for (let i = 0; i < dataArray.length; i += 1) {
       dataArray[i] = dataArray[i].split(',');
       if (i !== 0) {
         const obj = {};
-        for (let j = 0; j < dataArray[0].length; j++) {
+        for (let j = 0; j < dataArray[0].length; j += 1) {
           obj[dataArray[0][j]] = dataArray[i][j];
         }
-        const field = obj.field;
+        const { field } = obj;
         let count = 0;
         if (fieldCount[field]) {
           count = fieldCount[field];
@@ -40,13 +39,11 @@ async function countStudents (path) {
         newArray.push(obj);
       }
     }
-    let allLines = `Number of students: ${newArray.length}`;
+    console.log(`Number of students: ${newArray.length}`);
     Object.keys(fieldCount).forEach((field) => {
-      allLines += `\nNumber of students in ${field}: ${fieldCount[field]}. List:${fieldNames[field].map((firstname) => {
-        return ' ' + firstname;
-      })}`;
+      console.log(`Number of students in ${field}: ${fieldCount[field]}. List:${fieldNames[field].map((firstname) => `${firstname}`)
+      }`);
     });
-    console.log(allLines);
   }
 }
 
